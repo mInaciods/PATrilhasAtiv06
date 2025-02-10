@@ -1,0 +1,19 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Digite um número inteiro: ");
+        int n = int.Parse(Console.ReadLine());
+        bool ehPrimo = n > 1;  
+
+        for (int i = 2; i * i <= n && ehPrimo; i++)
+        {
+            if (n % i == 0)
+                ehPrimo = false;
+        }
+
+        Console.WriteLine(n + (ehPrimo ? " é primo." : " não é primo."));
+    }
+}
