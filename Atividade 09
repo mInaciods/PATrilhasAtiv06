@@ -1,0 +1,23 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        for (int num = 2; num <= 100; num++)
+        {
+            bool ehPrimo = true;
+
+            for (int i = 2; i * i <= num; i++)
+            {
+                if (num % i == 0)
+                {
+                    ehPrimo = false;
+                    break;
+                }
+            }
+            if (ehPrimo)
+                Console.WriteLine(num);
+        }
+    }
+}
