@@ -1,0 +1,21 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {  
+      int [] vetor = new int[5];
+      int j = 0;
+      Console.WriteLine("Digite cinco números inteiros: ");
+      
+      for (int i = 0; i < 5; i++)
+      {
+        vetor[i] = int.Parse(Console.ReadLine());
+        if (vetor[i] > j){
+          j = vetor[i];
+        }
+      }
+      
+      Console.WriteLine("O maior número é: " + j);
+    }
+}
