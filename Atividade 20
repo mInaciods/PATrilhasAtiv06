@@ -1,0 +1,94 @@
+using System;
+
+class Program
+{
+    // Classe para representar uma mercadoria
+    class Mercadoria
+    {
+        public string Nome { get; set; }
+        public int Quantidade { get; set; }
+        public decimal PrecoUnitario { get; set; }
+
+        public decimal ValorTotal()
+        {
+            return Quantidade * PrecoUnitario;
+        }
+    }
+
+    static void Main()
+    {
+        const int MAX_MERCADORIAS = 40;
+        Mercadoria[] estoque = new Mercadoria[MAX_MERCADORIAS];
+        int contador = 0;
+        int opcao;
+
+        do
+        {
+            // Exibe o menu
+            Console.WriteLine("MENU");
+            Console.WriteLine("1. Cadastrar mercadorias");
+            Console.WriteLine("2. Exibir valor total em mercadorias da empresa");
+            Console.WriteLine("3. Sair");
+            Console.Write("OPÇÃO: ");
+            opcao = int.Parse(Console.ReadLine());
+
+            switch (opcao)
+            {
+                case 1:
+                    if (contador < MAX_MERCADORIAS)
+                    {
+                        CadastrarMercadoria(estoque, contador);
+                        contador++;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Limite de mercadorias atingido.");
+                    }
+                    break;
+
+                case 2:
+                    ExibirValorTotal(estoque, contador);
+                    break;
+
+                case 3:
+                    Console.WriteLine("Saindo...");
+                    break;
+
+                default:
+                    Console.WriteLine("Opção inválida. Tente novamente.");
+                    break;
+            }
+
+            Console.WriteLine(); // Linha em branco para melhor legibilidade
+        } while (opcao != 3);
+    }
+
+    static void CadastrarMercadoria(Mercadoria[] estoque, int index)
+    {
+        Mercadoria mercadoria = new Mercadoria();
+
+        Console.Write("Digite o nome da mercadoria: ");
+        mercadoria.Nome = Console.ReadLine();
+
+        Console.Write("Digite a quantidade em estoque: ");
+        mercadoria.Quantidade = int.Parse(Console.ReadLine());
+
+        Console.Write("Digite o preço unitário: ");
+        mercadoria.PrecoUnitario = decimal.Parse(Console.ReadLine());
+
+        estoque[index] = mercadoria;
+        Console.WriteLine("Mercadoria cadastrada com sucesso!");
+    }
+
+    static void ExibirValorTotal(Mercadoria[] estoque, int contador)
+    {
+        decimal valorTotal = 0;
+
+        for (int i = 0; i < contador; i++)
+        {
+            valorTotal += estoque[i].ValorTotal();
+        }
+
+        Console.WriteLine($"O valor total em mercadorias da empresa é: R$ {valorTotal:F2}");
+    }
+}
