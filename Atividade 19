@@ -1,0 +1,19 @@
+using System;
+
+class Program
+{
+  static void Main()
+  {
+      string [] nomes = new string[10];
+      
+      Console.Write("Digite os nomes: ");
+      for (int i = 0; i < nomes.Length; i++){
+       nomes[i] = (Console.ReadLine());
+        }
+    
+    Console.WriteLine("Lista dos nomes: ");
+    for (int i = 0; i < nomes.Length; i++){
+    Console.WriteLine(nomes[i]);
+      }
+  }
+}
