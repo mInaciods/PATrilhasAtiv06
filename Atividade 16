@@ -1,0 +1,27 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+      int [] tabela1 = new int[5];
+      int [] tabela2 = new int[5];
+      int [] soma = new int[5];
+      Console.Write("Digite os números da primeira tabela: ");
+      for (int i = 0; i < tabela1.Length; i++){
+       tabela1[i] = int.Parse(Console.ReadLine());
+      }
+      Console.Write("Digite os números da segunda tabela: ");
+      for (int i = 0; i < tabela1.Length; i++){
+        tabela2[i] = int.Parse(Console.ReadLine());
+      }
+      
+      for (int i = 0; i < soma.Length; i++){
+      soma[i] = tabela1[i] + tabela2[i];   
+      }
+
+      for (int i = 0; i < soma.Length; i++){
+      Console.WriteLine("Soma {0}: {1}", i, soma[i]);   
+      } 
+    }
+}
